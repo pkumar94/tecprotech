@@ -1,0 +1,21 @@
+.logo{height:50px;}
+
+//  ------------- customization in material css ---------
+::ng-deep .mat-form-field-flex > .mat-form-field-infix { padding: 0.4em 0px !important;}
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-label { margin-top:-12px; }
+::ng-deep .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {transform: translateY(-1.1em) scale(.75); width: 133.33333%;}
+::ng-deep .mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-suffix .mat-icon-button{height:2em !important;}
+
+.modal-link{text-align: center;padding:10px 0px;}
+.modal-link a{cursor: pointer;background: #e8e5e5;padding: 15px;border-radius: 5px;}
+.captcha-div{margin:0px auto !important;display:block;width:304px;}
+.login-div{background:#ffffff;margin-top:100px;margin-bottom:10px;padding-bottom:0px;border-radius:15px;}
+.login-head{width:100%;height:auto;padding:10px 0px;background:#202020;border-radius:15px 15px 0px 0px;}
+.btn-facebook{background: url("src/assets/images/fb.png");height:50px;width:50px;}
+.btn-google{background: url("src/assets/images/google1.png");height:50px;width:50px;}
+
+
+//Responsive css
+@media(min-width:320px) and (max-width:768px){
+    .login-div{margin-top:0px;}
+}

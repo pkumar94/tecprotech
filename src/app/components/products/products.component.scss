@@ -1,0 +1,20 @@
+.provalue{border-radius:5px;padding:10px 0px;transition:0.3s;}
+.provalue:hover{background:rgba(244, 122, 73, 0.3);transition:0.3s;box-shadow:0px 0px 10px 1px rgba(244, 122, 73, 1);}
+.provalue div{padding:5px 0px;}
+.provalue div p{margin-bottom:0px;}
+.provalue div:nth-child(odd){background:rgba(244, 122, 73, 0.1);}
+.provalue div:nth-child(even){background:rgba(244, 122, 73, 0.2);}
+
+.proclassic{border-radius:5px;padding:10px 0px;transition:0.3s;}
+.proclassic:hover{background:rgba(77, 172, 143, 0.3);transition:0.3s;box-shadow:0px 0px 10px 1px rgba(77, 172, 143, 1);}
+.proclassic div{padding:5px 0px;}
+.proclassic div p{margin-bottom:0px;}
+.proclassic div:nth-child(odd){background:rgba(77, 172, 143, 0.1);}
+.proclassic div:nth-child(even){background:rgba(77, 172, 143, 0.2);}
+
+.propremium{border-radius:5px;padding:10px 0px;transition:0.3s;}
+.propremium:hover{background:rgba(44, 113, 185, 0.3);transition:0.3s;box-shadow:0px 0px 10px 1px rgba(44, 113, 185, 1);}
+.propremium div{padding:5px 0px;}
+.propremium div p{margin-bottom:0px;}
+.propremium div:nth-child(odd){background:rgba(44, 113, 185, 0.1);}
+.propremium div:nth-child(even){background:rgba(44, 113, 185, 0.2);}

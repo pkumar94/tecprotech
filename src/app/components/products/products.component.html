@@ -1,0 +1,173 @@
+<!-- header section  -->
+<div class="container-fluid">
+    <div class="row bg-theme">
+        <div class="col-lg-10 py-2">
+            <button (click)="sidenav.toggle()" mat-icon-button class="text-white mr-3">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <a><img src="../../../assets/images/logo_tecprotec.png" class="brand-logo"></a>
+        </div>
+        <div class="col-lg-2 text-right pr-0">
+            <headernav></headernav>
+        </div>
+    </div>
+</div>
+<mat-sidenav-container class="container-fluid h-100 px-0">
+    <!-- sidenav -->
+    <mat-sidenav #sidenav mode="side" [(opened)]="opened" class="col-lg-2 bg-theme h-100 px-0">
+        <sidenav></sidenav>
+    </mat-sidenav>
+    <!-- main body -->
+    <mat-sidenav-content class="col-lg-10">
+        <div class="container-fluid px-0">
+            <div class="row">
+                <div class="col-lg-12 mt-2">
+                    <h3>Products</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 text-center provalue">
+                    <img src="../../../assets/images/provalue.png">
+                    <div>
+                        <h6>Protection</h6>
+                        <p>Phone</p>
+                    </div>
+                    <div>
+                        <h6>Protection Period</h6>
+                        <p>12 Months</p>
+                    </div>
+                    <div>
+                        <h6>Suggested Device Type</h6>
+                        <p>All device model &amp; type with a <br> maximum price of IDR 1,500,000</p>
+                    </div>
+                    <div>
+                        <h6>Robbery</h6>
+                        <p><i class="fa fa-times text-danger"></i></p>
+                    </div>
+                    <div>
+                        <h6>Accidental Damage</h6>
+                        <p><i class="fa fa-check text-success"></i></p>
+                    </div>
+                    <div>
+                        <h6>Liquid Damage</h6>
+                        <p><i class="fa fa-check text-success"></i></p>
+                    </div>
+                    <div>
+                        <h6>Device Replacement</h6>
+                        <p><i class="fa fa-times text-danger"></i></p>
+                    </div>
+                    <div>
+                        <h6>Device Pick Up &amp; Delivery</h6>
+                        <p><i class="fa fa-check text-success"></i></p>
+                    </div>
+                    <div>
+                        <h6>Number of Claims</h6>
+                        <p>1 time</p>
+                    </div>
+                    <div>
+                        <h6>Claim Limit</h6>
+                        <p>IDR 1,000,000</p>
+                    </div>
+                    <div>
+                        <h6>Excess Fee Claim</h6>
+                        <p>No <br><br></p>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-center proclassic">
+                    <img src="../../../assets/images/proclassic.png">
+                    <div>
+                        <h6>Protection</h6>
+                        <p>Phone</p>
+                    </div>
+                    <div>
+                        <h6>Protection Period</h6>
+                        <p>6 or 12 Months</p>
+                    </div>
+                    <div>
+                        <h6>Suggested Device Type</h6>
+                        <p>All device model &amp; type <br><br></p>
+                    </div>
+                    <div>
+                        <h6>Robbery</h6>
+                        <p><i class="fa fa-times text-danger"></i></p>
+                    </div>
+                    <div>
+                        <h6>Accidental Damage</h6>
+                        <p><i class="fa fa-check text-success"></i></p>
+                    </div>
+                    <div>
+                        <h6>Liquid Damage</h6>
+                        <p><i class="fa fa-check text-success"></i></p>
+                    </div>
+                    <div>
+                        <h6>Device Replacement</h6>
+                        <p><i class="fa fa-check text-success"></i></p>
+                    </div>
+                    <div>
+                        <h6>Device Pick Up &amp; Delivery</h6>
+                        <p><i class="fa fa-check text-success"></i></p>
+                    </div>
+                    <div>
+                        <h6>Number of Claims</h6>
+                        <p>Multiple times</p>
+                    </div>
+                    <div>
+                        <h6>Claim Limit</h6>
+                        <p>Up to device price</p>
+                    </div>
+                    <div>
+                        <h6>Excess Fee Claim</h6>
+                        <p>5% subject to device price <br><br></p>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-center propremium">
+                    <img src="../../../assets/images/propremium.png">
+                    <div>
+                        <h6>Protection</h6>
+                        <p>Phone</p>
+                    </div>
+                    <div>
+                        <h6>Protection Period</h6>
+                        <p>12 Months</p>
+                    </div>
+                    <div>
+                        <h6>Suggested Device Type</h6>
+                        <p>All device model &amp; type <br><br></p>
+                    </div>
+                    <div>
+                        <h6>Robbery</h6>
+                        <p><i class="fa fa-check text-success"></i></p>
+                    </div>
+                    <div>
+                        <h6>Accidental Damage</h6>
+                        <p><i class="fa fa-check text-success"></i></p>
+                    </div>
+                    <div>
+                        <h6>Liquid Damage</h6>
+                        <p><i class="fa fa-check text-success"></i></p>
+                    </div>
+                    <div>
+                        <h6>Device Replacement</h6>
+                        <p><i class="fa fa-check text-success"></i></p>
+                    </div>
+                    <div>
+                        <h6>Device Pick Up &amp; Delivery</h6>
+                        <p><i class="fa fa-check text-success"></i></p>
+                    </div>
+                    <div>
+                        <h6>Number of Claims</h6>
+                        <p>Multiple times</p>
+                    </div>
+                    <div>
+                        <h6>Claim Limit</h6>
+                        <p>Up to device price</p>
+                    </div>
+                    <div>
+                        <h6>Excess Fee Claim</h6>
+                        <p>5% subject to device price for repair <br> 20% subject to device price for robbery</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

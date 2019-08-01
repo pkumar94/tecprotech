@@ -1,0 +1,128 @@
+<!-- header section  -->
+<div class="container-fluid">
+    <div class="row bg-theme">
+        <div class="col-lg-10 py-2">
+            <button (click)="sidenav.toggle()" mat-icon-button class="text-white mr-3"><mat-icon>menu</mat-icon></button>
+            <a><img src="../../../assets/images/logo_tecprotec.png" class="brand-logo"></a>
+        </div>
+        <div class="col-lg-2 text-right pr-0">
+            <headernav></headernav>
+        </div>
+    </div>
+</div>
+<mat-sidenav-container class="container-fluid h-100 px-0">
+    <!-- sidenav -->
+    <mat-sidenav #sidenav mode="side" [(opened)]="opened" class="col-lg-2 bg-theme h-100 px-0">
+        <sidenav></sidenav>
+    </mat-sidenav>
+    <!-- main body -->
+    <mat-sidenav-content class="col-lg-10">
+        <div class="container-fluid px-0">
+            <div class="row">
+                <div class="col-lg-12 mt-2">
+                    <h3>Profile</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 text-right">
+                    <button class="btn btn-icon-theme" data-toggle="modal" data-target="#editProfileModal" matTooltip="Edit profile"><i class="fa fa-pencil"></i></button>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col-lg-2 col-8 offset-2 offset-lg-5">
+                    <img src="../../../assets/images/user-img.svg" class="img-fluid rounded-circle img-profile">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="container-fluid bg-custom-gray py-4 mb-3 border-radius-10">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <h5 class="mb-0">Name</h5>
+                            </div>
+                            <div class="col-lg-8">
+                                <p class="mb-0">Pravin Sarkate</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="container-fluid bg-custom-gray py-4 mb-3 border-radius-10">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <h5 class="mb-0">Contact Number</h5>
+                            </div>
+                            <div class="col-lg-8">
+                                <p class="mb-0">988928292</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="container-fluid bg-custom-gray py-4 mb-3 border-radius-10">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <h5 class="mb-0">E-mail Id</h5>
+                            </div>
+                            <div class="col-lg-8">
+                                <p class="mb-0">pravinsarkate@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="container-fluid bg-custom-gray py-4 mb-3 border-radius-10">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <h5 class="mb-0">Address</h5>
+                            </div>
+                            <div class="col-lg-8">
+                                <p class="mb-0">Eon Arcade, 3rd Floor, Shop No. 5, Station Junction, Pune-411 001</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+<!-- modal edit profile -->
+<div class="modal fade" id="editProfileModal" tabindex="-1" role="dialog" aria-labelledby="editProfileModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editProfileModalLabel">Edit Profile</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <mat-form-field [formGroup]="editProfileForm" class="col-lg-12 mt-3">
+                    <input matInput placeholder="Name" formControlName="name" required>
+                    <mat-error *ngIf="!editProfileForm.get('name').valid && editProfileForm.get('name').touched">Please enter name</mat-error>
+                </mat-form-field>
+                <mat-form-field [formGroup]="editProfileForm" class="col-lg-12 mt-3">
+                    <input matInput placeholder="Contact Number" formControlName="contact" required>
+                    <mat-error *ngIf="!editProfileForm.get('contact').valid && editProfileForm.get('contact').touched">
+                        Please enter contact number</mat-error>
+                </mat-form-field>
+                <mat-form-field [formGroup]="editProfileForm" class="col-lg-12 mt-3">
+                    <input matInput placeholder="E-mail Id" formControlName="email" required>
+                    <mat-error *ngIf="!editProfileForm.get('email').valid && editProfileForm.get('email').touched"> Please enter e-mail id</mat-error>
+                </mat-form-field>
+                <mat-form-field [formGroup]="editProfileForm" class="col-lg-12 mt-3">
+                    <textarea matInput placeholder="Address" formControlName="address" required></textarea>
+                    <mat-error *ngIf="!editProfileForm.get('address').valid && editProfileForm.get('address').touched">
+                        Please enter address</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="modal-footer">
+                <button mat-button data-dismiss="modal">Close</button>
+                <button mat-raised-button color="primary" data-dismiss="modal"[disabled]="editProfileForm.invalid">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>

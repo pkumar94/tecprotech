@@ -1,0 +1,137 @@
+<div class="container-fluid bg-theme h-100">
+    <div class="row">
+        <div class="login-div mat-elevation-z22 col-lg-4 offset-lg-4 px-0">
+            <div class="login-head text-center">
+                <img class="logo" src="../../../assets/images/logo_tecprotec.png">
+            </div>
+
+            <div class="login-body">
+                <h5 class="modal-link mt-3 mb-3"><a data-toggle="modal" data-target="#loginIdModal">Sign In With Login
+                        Id</a></h5>
+
+
+                <p class="text-center mb-0 font-italic">OR</p>
+
+                <h5 class="modal-link mt-3 mb-3"><a data-toggle="modal" data-target="#mobileModal">Sign In With Mobile
+                        Number</a></h5>
+
+                <div class="form-group" [formGroup]="loginFormGroup" *ngIf="disableCaptcha">
+                    <!-- for server -->
+                    <!--<re-captcha class="captcha-div" siteKey="6LdJea8UAAAAADQIDWzdR99D3wG86qodF3zqKaKP"
+                        formControlName="recaptchaReactive"></re-captcha>-->
+
+                    <!-- for localhost -->
+                     <re-captcha class="captcha-div" siteKey="6LcOuyYTAAAAAHTjFuqhA52fmfJ_j5iFk5PsfXaU" formControlName="recaptchaReactive" ></re-captcha>
+
+                </div>
+
+                <div class="col-lg-12 text-center">
+                    <button mat-raised-button color="primary" [disabled]="loginFormGroup.invalid"
+                        (click)="signIn()">Sign In</button>
+                </div>
+
+
+
+
+                <div class="col-lg-12 mt-3">
+                    <h5 class="text-center mt-3 mb-2">Sign In With Social Media</h5>
+                    <ul class="list-unstyled list-inline text-center">
+                        <li class="list-inline-item"><button type="button" class="btn btn-facebook"
+                                (click)="socialSignIn('facebook')"></button></li>
+                        <li class="list-inline-item"><button type="button" class="btn btn-google"
+                                (click)="socialSignIn('google')"></button></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- Modal sign in with login id -->
+<div class="modal fade" id="loginIdModal" tabindex="-1" role="dialog" aria-labelledby="loginIdModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="loginIdModalLabel">Sign In</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <mat-form-field class="col-lg-12 mt-3" appearance="outline" [formGroup]="loginIdFormGroup">
+                    <mat-label>Login Id</mat-label>
+                    <input matInput placeholder="Login Id" formControlName="loginId" required>
+                    <mat-error
+                        *ngIf="!loginIdFormGroup.get('loginId').valid && loginIdFormGroup.get('loginId').touched">Please
+                        enter login Id</mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="col-lg-12 mt-2" appearance="outline" [formGroup]="loginIdFormGroup">
+                    <mat-label>Password</mat-label>
+                    <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'"
+                        formControlName="password" required>
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                        [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                    <mat-error
+                        *ngIf="!loginIdFormGroup.get('password').valid && loginIdFormGroup.get('password').touched">
+                        Please enter password</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="modal-footer">
+                <button mat-button data-dismiss="modal">Close</button>
+                <button mat-raised-button color="primary" [disabled]="loginIdFormGroup.invalid" data-dismiss="modal"
+                    (click)="enableCaptcha()">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- modal sign in with mobile number -->
+<div class="modal fade" id="mobileModal" tabindex="-1" role="dialog" aria-labelledby="mobileModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="mobileModalLabel">Sign In</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <mat-form-field class="col-lg-12 mt-2" appearance="outline" [formGroup]="mobileFormGroup">
+                    <mat-label>Mobile Number</mat-label>
+                    <input matInput placeholder="Mobile Number" formControlName="mobile" required>
+
+                    <mat-error
+                        *ngIf="mobileFormGroup.get('mobile').hasError('required') && mobileFormGroup.get('mobile').touched">
+                        Please enter mobile number</mat-error>
+                    <mat-error
+                        *ngIf="mobileFormGroup.get('mobile').hasError('pattern') && mobileFormGroup.get('mobile').touched">
+                        Please enter valid mobile number</mat-error>
+                    <mat-hint align="end"><a (click)="genereateOtp()">Generate OTP</a></mat-hint>
+
+                </mat-form-field>
+
+                <mat-form-field class="col-lg-12 mt-3" appearance="outline" [formGroup]="mobileFormGroup">
+                    <mat-label>Enter OTP</mat-label>
+                    <input matInput placeholder="Enter OTP" formControlName="otp" required>
+                    <mat-error *ngIf="!mobileFormGroup.get('otp').valid && mobileFormGroup.get('otp').touched">Please
+                        enter OTP</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="modal-footer">
+                <button mat-button data-dismiss="modal">Close</button>
+                <button mat-raised-button color="primary" [disabled]="mobileFormGroup.invalid" data-dismiss="modal"
+                    (click)="enableCaptcha()">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>

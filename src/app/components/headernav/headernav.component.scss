@@ -1,0 +1,8 @@
+.btn-logout{padding: 0px 15px;line-height: 56px;color: #fff !important;background: #c62025;display: block;width: auto;cursor: pointer;}
+.btn-logout mat-icon {vertical-align: middle;}
+
+
+// Responsive css
+@media(min-width:320px) and (max-width:768px){
+    .btn-logout{display:none;}
+}

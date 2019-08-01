@@ -1,0 +1,40 @@
+<!-- header section  -->
+<div class="container-fluid">
+    <div class="row bg-theme">
+        <div class="col-lg-10 py-2">
+            <button (click)="sidenav.toggle()" mat-icon-button class="text-white mr-3"> <mat-icon>menu</mat-icon> </button>
+            <a><img src="../../../assets/images/logo_tecprotec.png" class="brand-logo"></a>
+        </div>
+        <div class="col-lg-2 text-right pr-0">
+            <headernav></headernav>
+        </div>
+    </div>
+</div>
+<mat-sidenav-container class="container-fluid h-100 px-0">
+    <!-- sidenav -->
+    <mat-sidenav #sidenav mode="side" [(opened)]="opened" class="col-lg-2 bg-theme h-100 px-0"><sidenav></sidenav></mat-sidenav>
+    <!-- main body -->
+    <mat-sidenav-content class="col-lg-10">
+        <div class="container-fluid px-0">
+            <div class="row">
+                <div class="col-lg-12 mt-2">
+                    <h3>Dashboard</h3>
+                </div>
+            </div>
+            <!-- Commission chart -->
+            <div class="row mb-4">
+                <div class="col-lg-12">
+                    <highcharts-chart [Highcharts]="highcharts" [options]="chartOptions" style="width: 100%; height: 400px; display: block;">
+                    </highcharts-chart>
+                </div>
+            </div>
+            <!-- Sales chart -->
+            <div class="row mt-4">
+                <div class="col-lg-12">
+                    <highcharts-chart [Highcharts]="highchartsSales" [options]="chartOptionsSales" style="width: 100%; height: 400px; display: block;">
+                    </highcharts-chart>
+                </div>
+            </div>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

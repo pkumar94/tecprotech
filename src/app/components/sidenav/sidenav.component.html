@@ -1,0 +1,18 @@
+<ul class="list-unstyled">
+    <li><a routerLink="/profile" class="active">
+            <img src="../../../assets/images/user-img.svg" class="side-profile">
+            Hi, User</a>
+    </li>
+    <li><a routerLink="/dashboard" routerLinkActive="active">
+            <mat-icon>dashboard</mat-icon> Dashboard
+        </a></li>
+    <li><a routerLink="/products" routerLinkActive="active">
+            <mat-icon>shopping_cart</mat-icon> Products
+        </a></li>
+    <li><a routerLink="/customer" routerLinkActive="active">
+            <mat-icon>group</mat-icon> Customer
+        </a></li>
+    <li class="sm-only"><a (click)="logout()">
+            <mat-icon>exit_to_app</mat-icon> Logout
+        </a></li>
+</ul>

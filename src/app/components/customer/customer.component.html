@@ -1,0 +1,131 @@
+<!-- header section  -->
+<div class="container-fluid">
+  <div class="row bg-theme">
+    <div class="col-lg-10 py-2">
+      <button (click)="sidenav.toggle()" mat-icon-button class="text-white mr-3">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <a><img src="../../../assets/images/logo_tecprotec.png" class="brand-logo"></a>
+    </div>
+    <div class="col-lg-2 text-right pr-0">
+      <headernav></headernav>
+    </div>
+  </div>
+</div>
+<mat-sidenav-container class="container-fluid h-100 px-0">
+  <!-- sidenav -->
+  <mat-sidenav #sidenav mode="side" [(opened)]="opened" class="col-lg-2 bg-theme h-100 px-0">
+    <sidenav></sidenav>
+  </mat-sidenav>
+  <!-- main body -->
+  <mat-sidenav-content class="col-lg-10">
+    <div class="container-fluid px-0">
+      <div class="row">
+        <div class="col-lg-12 mt-2">
+          <h3>Customer</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12 text-right">
+          <button class="btn btn-icon-theme" matTooltip="Add Customer" data-toggle="modal"
+            data-target="#customerModal"><i class="fa fa-plus"></i></button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="table-responsive">
+            <mat-form-field>
+              <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+            </mat-form-field>
+            <table mat-table [dataSource]="dataSource" class="table table-bordered" matSort>
+              <ng-container matColumnDef="position">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
+                <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+              </ng-container>
+              <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+              </ng-container>
+              <ng-container matColumnDef="imei">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> IMEI </th>
+                <td mat-cell *matCellDef="let element"> {{element.imei}} </td>
+              </ng-container>
+              <ng-container matColumnDef="emailid">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Email Id </th>
+                <td mat-cell *matCellDef="let element"> {{element.emailid}} </td>
+              </ng-container>
+              <ng-container matColumnDef="contact">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Contact Number</th>
+                <td mat-cell *matCellDef="let element"> {{element.contact}} </td>
+              </ng-container>
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+          </div>
+          <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+        </div>
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+<div class="modal fade" id="customerModal" tabindex="-1" role="dialog" aria-labelledby="customerModalLabel"  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="customerModalLabel">Customer Details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <mat-form-field [formGroup]="customerFormGroup" class="col-lg-12">
+          <input matInput placeholder="Customer Name" formControlName="name" required>
+          <mat-error *ngIf="!customerFormGroup.get('name').valid && customerFormGroup.get('name').touched">Please enter customer name</mat-error>
+        </mat-form-field>
+        <mat-form-field [formGroup]="customerFormGroup" class="col-lg-12">
+          <input matInput placeholder="Mobile Number" formControlName="mobile" required>
+          <mat-error *ngIf="!customerFormGroup.get('mobile').valid && customerFormGroup.get('mobile').touched">Please enter mobile number</mat-error>
+        </mat-form-field>
+        <mat-form-field [formGroup]="customerFormGroup" class="col-lg-12">
+          <input matInput placeholder="E-mail Id" formControlName="email" required>
+          <mat-error *ngIf="!customerFormGroup.get('email').valid && customerFormGroup.get('email').touched">Please enter e-mail id</mat-error>
+        </mat-form-field>
+        <mat-form-field [formGroup]="customerFormGroup" class="col-lg-12">
+          <input matInput placeholder="IMEI No. of Device" formControlName="imei" required>
+          <mat-error *ngIf="!customerFormGroup.get('imei').valid && customerFormGroup.get('imei').touched">Please enter IMEI number of your device</mat-error>
+        </mat-form-field>
+        <mat-form-field [formGroup]="customerFormGroup" class="col-lg-12">
+          <mat-label>Select Brand</mat-label>
+          <select matNativeControl formControlName="brand" required>
+            <option value="apple">Apple</option>
+          </select>
+          <mat-error *ngIf="!customerFormGroup.get('brand').valid && customerFormGroup.get('brand').touched">Please select brand</mat-error>
+        </mat-form-field>
+        <mat-form-field [formGroup]="customerFormGroup" class="col-lg-12">
+          <mat-label>Select Model</mat-label>
+          <select matNativeControl formControlName="model" required>
+            <option value="iphone6">iPhone 6</option>
+            <option value="iphone6s">iPhone 6s</option>
+            <option value="iphone6splus">iPhone 6s plus</option>
+            <option value="iphone8">iPhone 8</option>
+            <option value="iphone8plus">iPhone 8 plus</option>
+            <option value="iphonexr">iPhone XR</option>
+            <option value="iphonexs">iPhone XS</option>
+          </select>
+          <mat-error *ngIf="!customerFormGroup.get('model').valid && customerFormGroup.get('model').touched">Please
+            select model</mat-error>
+        </mat-form-field>
+        <mat-form-field [formGroup]="customerFormGroup" class="col-lg-12">
+          <input matInput placeholder="Device Purchase Price" formControlName="purchasePrice" required>
+          <mat-error  *ngIf="!customerFormGroup.get('purchasePrice').valid && customerFormGroup.get('purchasePrice').touched">
+            Please enter device purchase price</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="modal-footer">
+        <button mat-button data-dismiss="modal">Close</button>
+        <button mat-raised-button color="primary" [disabled]="customerFormGroup.invalid"
+          data-dismiss="modal">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>

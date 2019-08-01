@@ -1,0 +1,30 @@
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* ----- brand logo ---- */
+.brand-logo{height:40px;}
+
+/*  ---- theme --- */
+.bg-theme{background:#df2228;}
+.bg-dark-theme{background:#c62025;}
+.text-theme{color:#df2228;}
+
+.btn-icon-theme{background:#e1e3e3;color:#df2228;}
+.btn-icon-theme:hover{background:#e1e3e3;color:#c62025;}
+
+/* ------ common css ------ */
+.height-100{height:100%;}
+.sm-only{display:none;}
+/* ------- mat table css ------- */
+th.mat-header-cell:first-of-type{padding-left:0px !important;}
+.mat-header-cell button{font-size:15px;padding-left:10px;}
+tr.mat-footer-row, tr.mat-row,th.mat-header-cell {height:40px !important;line-height:40px !important;}
+.mat-cell{padding: 0px 10px !important;}
+tr.mat-header-row{background:#d4d2d2;}
+
+
+
+/* --------- responsive css ---------- */
+@media(min-width:320px) and (max-width:768px){
+    .sm-only{display:block;}
+}
