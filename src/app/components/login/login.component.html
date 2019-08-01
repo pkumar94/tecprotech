@@ -15,18 +15,18 @@
                 <h5 class="modal-link mt-3 mb-3"><a data-toggle="modal" data-target="#mobileModal">Sign In With Mobile
                         Number</a></h5>
 
-                <div class="form-group" [formGroup]="loginFormGroup" *ngIf="disableCaptcha">
+                <div class="form-group" [formGroup]="loginFormGroup">
                     <!-- for server -->
                     <!--<re-captcha class="captcha-div" siteKey="6LdJea8UAAAAADQIDWzdR99D3wG86qodF3zqKaKP"
                         formControlName="recaptchaReactive"></re-captcha>-->
 
                     <!-- for localhost -->
-                     <re-captcha class="captcha-div" siteKey="6LcOuyYTAAAAAHTjFuqhA52fmfJ_j5iFk5PsfXaU" formControlName="recaptchaReactive" ></re-captcha>
+                     <!-- <re-captcha class="captcha-div" siteKey="6LcOuyYTAAAAAHTjFuqhA52fmfJ_j5iFk5PsfXaU" formControlName="recaptchaReactive" ></re-captcha> -->
 
                 </div>
 
                 <div class="col-lg-12 text-center">
-                    <button mat-raised-button color="primary" [disabled]="loginFormGroup.invalid"
+                    <button mat-raised-button color="primary"
                         (click)="signIn()">Sign In</button>
                 </div>
 
