@@ -1,0 +1,9 @@
+From node:10
+RUN mkdir -p C:/Users/ps11184490/src/app
+WORKDIR C:/Users/ps11184490/src/app
+COPY package.json C:/Users/ps11184490/src/app
+RUN npm cache clean 
+RUN npm install
+COPY .C:/Users/ps11184490/src/app
+EXPOSE 4200
+CMD ["npm","start"]
