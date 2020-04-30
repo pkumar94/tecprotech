@@ -30,7 +30,7 @@
     "highcharts": "^7.1.2",
     "highcharts-angular": "^2.4.0",
     "intl": "^1.2.5",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "ng-recaptcha": "^4.3.0",
     "ngx-toastr": "^10.0.4",
     "rxjs": "~6.4.0",
